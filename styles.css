@@ -1,0 +1,157 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+  font-family: 'roboto', tahoma, sans-serif;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  /* margin: 0 1.5rem; */
+}
+
+
+
+
+
+/* header styling */
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d3d3c7;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+}
+
+.nav-items{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    /* height: 100%; */
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+ul li a:hover{
+    background-color: #5CA202;
+    color: white;
+    padding: 1rem;
+    border: none;
+}
+
+.logo{
+     width: 50%;
+     display: flex;
+     font-size: 2rem;
+}
+
+.coco{
+    color: #5CA202;
+    
+}
+
+.fert{
+    color: rgb(213, 128, 64);
+}
+
+
+/* home section */
+#home{
+    width: 100vw;
+    height: 100vh;
+    background-attachment:fixed;
+    background-image: url(./assets/images/pexels-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    color: white;
+    padding: 2rem;
+}
+
+.hero-title{
+    font-size: 2rem;
+}
+
+.hero-btn{
+    background-color: #5CA202;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    width: auto;
+    max-width:12.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */;
+}
+
+.hero-btn:hover{
+    color: #5CA202;
+    background-color: white;
+
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem; 
+        
+    }
+
+     .hero-subtitle {
+        font-size: 2rem; 
+        
+    }
+
+    .hero-btn {
+        width: 50%; 
+        font-size: 1rem; 
+        padding: 10px 15px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 1.4rem; 
+
+    }
+
+     .hero-subtitle {
+        font-size: 1.2rem; 
+    }
+
+    .hero-btn {
+        width: 70%; 
+        font-size: 0.9rem; 
+        padding: 8px 12px; 
+    }
+}
+
