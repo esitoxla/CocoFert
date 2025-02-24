@@ -47,7 +47,7 @@ img, picture, video, canvas, svg {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     position: fixed;
     width: 100%;
 }
