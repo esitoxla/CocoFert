@@ -1,45 +1,56 @@
 // menu-toggle.js
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navItems = document.querySelector('.nav-items');
-  const closeBtn = document.querySelector('.close-btn');
-  
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navItems = document.querySelector(".nav-items");
+  const closeBtn = document.querySelector(".close-btn");
+  const navbar = document.querySelector(".nav-bar");
+
   // Toggle menu when hamburger is clicked
-  menuToggle.addEventListener('click', function() {
-    navItems.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    closeBtn.classList.toggle('active');
+  menuToggle.addEventListener("click", function () {
+    navItems.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+    closeBtn.classList.toggle("active");
   });
-  
+
   // Close menu when X is clicked
-  closeBtn.addEventListener('click', function() {
-    navItems.classList.remove('active');
-    menuToggle.classList.remove('active');
-    closeBtn.classList.remove('active');
+  closeBtn.addEventListener("click", function () {
+    navItems.classList.remove("active");
+    menuToggle.classList.remove("active");
+    closeBtn.classList.remove("active");
   });
-  
+
   // Close menu when a nav link is clicked
-  const navLinks = document.querySelectorAll('.nav-items a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      navItems.classList.remove('active');
-      menuToggle.classList.remove('active');
-      closeBtn.classList.remove('active');
+  const navLinks = document.querySelectorAll(".nav-items a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navItems.classList.remove("active");
+      menuToggle.classList.remove("active");
+      closeBtn.classList.remove("active");
     });
   });
-  
+
   // Close menu when clicking outside
-  document.addEventListener('click', function(event) {
-    const isNavbar = event.target.closest('.nav-bar');
-    const isMenuOpen = navItems.classList.contains('active');
-    
+  document.addEventListener("click", function (event) {
+    const isNavbar = event.target.closest(".nav-bar");
+    const isMenuOpen = navItems.classList.contains("active");
+
     if (!isNavbar && isMenuOpen) {
-      navItems.classList.remove('active');
-      menuToggle.classList.remove('active');
-      closeBtn.classList.remove('active');
+      navItems.classList.remove("active");
+      menuToggle.classList.remove("active");
+      closeBtn.classList.remove("active");
+    }
+  });
+
+  // Change navbar background on scroll
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
     }
   });
 });
+
 
 
 

@@ -47,10 +47,24 @@ img, picture, video, canvas, svg {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    /* padding: 10px 20px; */
     position: fixed;
     width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    padding: 15px 20px;
 }
+
+/* add scrolled class styles */
+.nav-bar.scrolled {
+    background-color: wheat;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px; /* Slightly more compact when scrolled */
+}
+
+.nav-bar.scrolled .nav-items li a {
+    color: #333;
+}
+
 
 .nav-items{
     display: flex;
@@ -94,6 +108,8 @@ ul li a:hover{
 .menu-toggle, .close-btn {
   display: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .menu-toggle .bar {
@@ -101,7 +117,7 @@ ul li a:hover{
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background-color: #000;
+  background-color: black;
   transition: all 0.3s ease-in-out;
 }
 
@@ -245,6 +261,7 @@ ul li a:hover{
 #product > h1{
     margin-top: 2rem;
     text-align: center;
+    font-size: 2rem;
 }
 
 .product-items{
@@ -252,6 +269,7 @@ ul li a:hover{
     border: 1px solid rgb(213, 128, 64);
     border-radius: 8px;
     padding: 15px;
+    text-align: center;
 }
 
 .product-img{
@@ -394,7 +412,7 @@ ul li a:hover{
     top: 0;
     right: -100%;
     flex-direction: column;
-    background-color: white;
+    background-color: wheat;
     width: 70%;
     height: 100vh;
     justify-content: flex-start;
@@ -445,9 +463,10 @@ ul li a:hover{
     z-index: 102;
   }
   
-  .close-btn.active {
+  /* .close-btn.active {
     display: block;
-  }
+    color: #418E28;
+  } */
 }
 
 /* Small mobile devices */
@@ -579,11 +598,40 @@ ul li a:hover{
 
 /* PRODUCT SECTION */
 /* Responsive design for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .product-container {
-        grid-template-columns: 1fr; /* Stacks cards vertically on smaller screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        margin: 2rem 3rem; /* Reduce margin for smaller screens */
     }
 }
+
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+        margin: 2rem 1rem; /* Further reduce margin for mobile */
+        gap: 10px;
+    }
+
+    .product-img {
+        width: 50%; /* Adjust image size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-container {
+        margin: 2rem 0.5rem; /* Minimal margin for very small screens */
+    }
+
+    .product-img {
+        width: 60%; /* Larger image size for very small screens */
+    }
+
+    #product > h1 {
+        font-size: 1.5rem; /* Smaller heading size for very small screens */
+    }
+}
+
+
 
 /* TESTIMONIAL SECTION */
 /* Responsive Design */
