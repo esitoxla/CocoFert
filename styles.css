@@ -40,7 +40,7 @@ img, picture, video, canvas, svg {
 
 
 
-/* header styling */
+/* HEADER STYLING */
 .nav-bar{
     display: flex;
     flex-direction: row;
@@ -90,8 +90,24 @@ ul li a:hover{
     color: rgb(213, 128, 64);
 }
 
+/* styles for the hamburger menu */
+.menu-toggle, .close-btn {
+  display: none;
+  cursor: pointer;
+}
 
-/* home section */
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* HOME STYLING*/
+
 #home{
     width: 100vw;
     height: 100vh;
@@ -113,6 +129,7 @@ ul li a:hover{
     height: 100%;
     color: white;
     padding: 2rem;
+    background-color:rgba(0, 0, 0, 0.3);
 }
 
 .hero-title{
@@ -139,6 +156,7 @@ ul li a:hover{
     background-color: white;
 }
 
+/* ABOUT PRODUCT STYLING */
 
 .about-product{
     height: 100vh;
@@ -161,6 +179,8 @@ ul li a:hover{
     color: hsl(0deg 0% 37.25%);
 }
 
+/* ABOUT INNOVATOR STYLING */
+
 #innovator{
     width: 100%;
     height: 100vh;
@@ -175,8 +195,8 @@ ul li a:hover{
     width: 80%;
     margin: 0 auto;
     height: 100%;
-    border:none;
-    background-color: #F3F4F6;
+    border-radius: 1rem;
+    /* background-color: #F3F4F6; */
 }
 
 .innovate:hover {
@@ -213,6 +233,134 @@ ul li a:hover{
     padding-right: 1rem;
 }
 
+/* PRODUCT STYLING*/
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin:2rem 5rem;
+    gap: 20px;
+    /* background-color:#F3F4F6; */
+}
+
+#product > h1{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.product-items{
+    /* background-color: tomato; */
+    border: 1px solid rgb(213, 128, 64);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.product-img{
+   width: 40%; 
+   height: 70%;
+   object-fit: cover;
+   border-radius: 50%;
+   margin: 0 auto;
+}
+
+/* TESTIMONIAL STYLING */
+
+/* General styling for the testimonials section */
+.testimonials {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.testimonial-container {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertically center items */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Space between header and card */
+}
+
+/* Heading and Description */
+.testimonial-header {
+    flex: 1; /* Takes 50% of the width */
+    text-align: left;
+}
+
+.testimonial-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333; /* Dark text color */
+}
+
+.testimonial-header p {
+    font-size: 1rem;
+    color: #666; /* Medium gray text color */
+    margin-bottom: 20px;
+}
+
+/* Star rating styling */
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating span {
+    color: rgb(230, 158, 103); /* Gold color for stars */
+    font-size: 1.5rem;
+}
+
+/* Testimonial card styling */
+.testimonial-card {
+    flex: 1; /* Takes 50% of the width */
+    display: none; /* Hide all cards by default */
+    background-color: #fff; /* White background for cards */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left;
+}
+
+.testimonial-card.active {
+    display: block; /* Show only the active card */
+}
+
+.testimonial-card blockquote {
+    font-size: 1rem;
+    color: #555; /* Dark gray text color */
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial-card .author {
+    font-size: 0.9rem;
+    color: #777; /* Light gray text color */
+    font-weight: bold;
+}
+
+/* Navigation Arrows */
+.navigation-arrows {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start; /* Align arrows to the left */
+    gap: 20px; /* Space between arrows */
+}
+
+.arrow {
+    background-color: transparent;
+    border: 1px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: rgb(230, 158, 103); /* Dark color for arrows */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    height: 3rem;
+    width: 3rem;
+}
+
+.arrow:hover {
+    color: white; /* Blue color on hover */
+    background-color: rgb(230, 158, 103);
+    border: none;
+}
+
 
 
 
@@ -226,7 +374,103 @@ ul li a:hover{
 
 
 /* Responsive Design */
-/* hero section */
+/* nav bar */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    width: auto;
+    font-size: 1.5rem;
+  }
+  
+  .logo-img {
+    max-width: 40px;
+  }
+
+   .nav-items {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    height: 100vh;
+    justify-content: flex-start;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  
+  .nav-items.active {
+    right: 0;
+  }
+  
+  .nav-items li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  ul li a {
+    display: block;
+    padding: 10px;
+  }
+  
+  .menu-toggle {
+    display: block;
+    z-index: 101;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    z-index: 102;
+  }
+  
+  .close-btn.active {
+    display: block;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .logo-img {
+    max-width: 30px;
+  }
+  
+  .nav-items {
+    width: 80%;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* HERO SECTION */
 @media screen and (max-width: 768px) {
     .hero-title {
         font-size: 3rem; 
@@ -262,7 +506,8 @@ ul li a:hover{
     }
 }
 
-/* about section */
+
+/* ABOUT SECTION */
 @media (max-width: 1024px) {
     /* Adjust for tablets and smaller desktops */
     .about-product p {
@@ -328,5 +573,44 @@ ul li a:hover{
 
      .innovate-content {
         gap: 0.5rem; /* Further reduce gap between elements */
+    }
+}
+
+
+/* PRODUCT SECTION */
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr; /* Stacks cards vertically on smaller screens */
+    }
+}
+
+/* TESTIMONIAL SECTION */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column; /* Stack header and card vertically */
+        gap: 10px; /* Reduce gap for smaller screens */
+    }
+
+    .testimonial-header {
+        text-align: center; /* Center-align text on smaller screens */
+    }
+
+    .testimonial-header h2 {
+        font-size: 1.5rem; /* Smaller font size for headings */
+    }
+
+    .testimonial-header p {
+        font-size: 0.9rem; /* Smaller font size for descriptions */
+    }
+
+    .testimonial-card {
+        width: 100%; /* Full width for cards on smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+     .navigation-arrows {
+        justify-content: center; /* Center arrows on smaller screens */
     }
 }
