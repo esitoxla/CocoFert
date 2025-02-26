@@ -310,7 +310,7 @@ ul li a:hover{
 }
 
 .testimonial-header p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #666; /* Medium gray text color */
     margin-bottom: 20px;
 }
@@ -629,6 +629,7 @@ ul li a:hover{
     #product > h1 {
         font-size: 1.5rem; /* Smaller heading size for very small screens */
     }
+    
 }
 
 
