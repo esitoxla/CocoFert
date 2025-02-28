@@ -200,7 +200,8 @@ img, picture, video, canvas, svg {
 #innovator{
     width: 100%;
     height: 100vh;
-    background-color: white;
+    background-image: url(./assets/images/innovator-background.jpg);
+    background-size: cover;
 }
 
 .innovate{
@@ -212,13 +213,19 @@ img, picture, video, canvas, svg {
     margin: 0 auto;
     height: 100%;
     border-radius: 1rem;
-    /* background-color: #F3F4F6; */
+    background-color: transparent; 
+    backdrop-filter: blur(20px); /* Apply blur effect */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Add padding for better spacing */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    color: white;
 }
 
-.innovate:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-    transition: box-shadow 0.3s ease; /* Smooth transition */
-}
+/* .innovate:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    transition: box-shadow 0.3s ease; 
+} */
 
 .innovate img{
     width: 40%;
@@ -406,12 +413,12 @@ img, picture, video, canvas, svg {
     flex: 1;
     min-width: 300px; /* Minimum width for contact info */
     box-sizing: border-box; /* Include padding in width calculation */
-    background-color: transparent; /* Semi-transparent white background */
+    background-color: transparent; 
     backdrop-filter: blur(10px); /* Apply blur effect */
     border-radius: 10px; /* Rounded corners */
     padding: 20px; /* Add padding for better spacing */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .contact-info h2 {
@@ -544,6 +551,76 @@ img, picture, video, canvas, svg {
     color: #23241E;
 }
 
+
+/* FOOTER SECTION */
+footer{
+     background-color: #4A6B5B; /* Dark green */
+    color: rgb(230, 158, 103); /* Light brown for text */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Space between sections */
+}
+
+.quick-links,
+.legal-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-links span,
+.legal-links span {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(230, 158, 103); 
+}
+
+.footer-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-items li {
+    margin-bottom: 8px;
+}
+
+.footer-items a {
+    text-decoration: none;
+    color: rgb(230, 158, 103); /* Light brown */
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-items a:hover {
+    color: #8B7355; /* Medium brown on hover */
+}
+
+/* Horizontal line styling */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgb(230, 158, 103); /* Medium brown */
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* Copyright section styling */
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    color: rgb(230, 158, 103); 
+    margin-top: 10px;
+}
 
 
 
@@ -859,5 +936,25 @@ img, picture, video, canvas, svg {
     .contact-info h2,
     .contact-form h2 {
         font-size: 1.5rem; /* Smaller heading size for very small screens */
+    }
+}
+
+
+/* FOOTER SECTION */
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .footer-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .quick-links,
+    .legal-links {
+        align-items: center;
     }
 }
