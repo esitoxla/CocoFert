@@ -83,3 +83,37 @@ nextArrow.addEventListener("click", () => {
 
 // Show the first card initially
 showCard(currentIndex);
+
+
+
+
+// emailjs-form-handler.js
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize EmailJS
+  emailjs.init("drbtd1ODjsgC7uM9v"); // Replace with my EmailJS public key
+
+  // Select the form
+  const form = document.getElementById("form-contact");
+
+  if (form) {
+    // Add submit event listener
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Send form data via EmailJS
+      emailjs.sendForm("service_b8exvee", "template_bk7ndot", form).then(
+        function (response) {
+          alert("Message sent successfully!"); // Success feedback
+          console.log("SUCCESS:", response.status, response.text);
+        },
+
+        function (error) {
+          alert("Failed to send the message. Please try again."); // Error feedback
+          console.error("FAILED:", error);
+        }
+      );
+    });
+  } else {
+    console.log("Contact form not found");
+  }
+});
