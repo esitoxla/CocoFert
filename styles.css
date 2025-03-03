@@ -198,13 +198,28 @@ img, picture, video, canvas, svg {
     color: hsl(0deg 0% 37.25%);
 }
 
+.product-btn{
+    background-color: #418E28;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    width: auto;
+    max-width:12.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */;
+    text-decoration: none;
+    color: white;
+}
+
 /* ABOUT INNOVATOR STYLING */
 
 #innovator{
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     background-image: url(./assets/images/innovator-background.jpg);
     background-size: cover;
+    background-position: fixed;
 }
 
 .innovate{
@@ -213,14 +228,14 @@ img, picture, video, canvas, svg {
     justify-content: center;
     align-items: center;
     width: 80%;
-    margin: 0 auto;
     height: 100%;
-    border-radius: 1rem;
+    margin: 0 auto;
+    /* height: 100%; */
     background-color: transparent; 
     backdrop-filter: blur(20px); /* Apply blur effect */
     border-radius: 10px; /* Rounded corners */
     padding: 20px; /* Add padding for better spacing */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     color: white;
 }
@@ -230,13 +245,14 @@ img, picture, video, canvas, svg {
     transition: box-shadow 0.3s ease; 
 } */
 
-.innovate img{
-    width: 40%;
-    height: 90%;
-    border-radius: 1rem;
+.innovate-img{
+    background-image: url(./assets/images/innovator.jpg);
+    background-size: cover;
+    width: 20rem;
+    height: 25rem;
     border: 3px;
-    object-fit: cover;
-    margin:1.5rem ;
+    margin: 1.5rem;
+    border-radius: 1rem;
 }
 
 .innovate-content{
@@ -637,6 +653,9 @@ footer{
 /* Responsive Design */
 /* nav bar */
 @media screen and (max-width: 768px) {
+    header{
+        width: 100vw;
+    }
   .nav-bar {
     padding: 10px 20px;
   }
@@ -783,6 +802,10 @@ footer{
     .innovate img {
         width: 45%; /* Slightly reduce image width */
     }
+    
+    .innovate-content p{
+        text-align: left;
+    }
 }
 
 @media (max-width: 768px) {
@@ -805,7 +828,7 @@ footer{
     .innovate img {
         width: 80%; /* Increase image width for better visibility */
         height: auto; /* Allow height to adjust automatically */
-        margin: 1rem 0; /* Adjust margin */
+        margin: 1rem 0; 
     }
 
     .innovate-content {
@@ -816,6 +839,10 @@ footer{
 
 @media (max-width: 480px) {
     /* Adjust for mobile devices */
+    .about-product{
+        margin-bottom: 2rem;
+    }
+
     .about-product h2 {
         font-size: 1.5rem; /* Further reduce font size */
     }
@@ -831,6 +858,8 @@ footer{
 
     .innovate img {
         width: 90%; /* Increase image width for better visibility */
+        height: auto;
+        margin: 1rem 0;
     }
 
      .innovate-content {
@@ -845,6 +874,10 @@ footer{
     .product-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
         margin: 2rem 3rem; /* Reduce margin for smaller screens */
+    }
+
+    .product-items p{
+        font-size: .9rem;
     }
 }
 
@@ -950,7 +983,7 @@ footer{
     }
 
     .contact-details{
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -974,3 +1007,5 @@ footer{
         margin: 10px 0; /* Adjust as needed */
     }
 }
+
+
