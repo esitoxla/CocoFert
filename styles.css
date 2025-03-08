@@ -64,29 +64,40 @@ html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1); /* Very subtle white background */
+  backdrop-filter: blur(5px); /* Blur effect for better readability */
+  -webkit-backdrop-filter: blur(5px); /* For Safari support */
   position: fixed;
   width: 100%;
-  height: 12%;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  height: auto; /* Changed from fixed height to auto */
+  min-height: 80px; /* Minimum height instead of fixed percentage */
+  transition: all 0.3s ease;
   z-index: 1000;
-  padding: 10px 15px;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
 }
 
 /* add scrolled class styles */
 .nav-bar.scrolled {
-  background-color: wheat;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* More opaque when scrolled */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow when scrolled */
 }
 
 .nav-bar.scrolled .nav-items li a {
   color: #333;
+
 }
 
 .nav-bar.scrolled .nav-items li a:hover {
   color: #418e28;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-bar a {
+  color: #222; /* Dark text color */
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Text shadow for readability */
 }
 
 .nav-items {
@@ -113,6 +124,11 @@ html {
   display: flex;
   align-items: center;
   font-size: 1.7rem;
+  padding-top: 1rem;
+}
+
+.nav-bar .logo img {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
 .coco {
@@ -137,7 +153,7 @@ html {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background-color: black;
+  background-color: #1A3A1A;
   transition: all 0.3s ease-in-out;
 }
 
@@ -168,7 +184,7 @@ html {
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .hero-btn {
@@ -193,37 +209,101 @@ html {
 /* ABOUT PRODUCT STYLING */
 
 .about-product {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decoration */
+.about-product::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 Q50,0 70,10 T90,30 T70,50 T30,70 T10,50 T30,30 Z" fill="none" stroke="%23418e2822" stroke-width="2"/></svg>') repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.about-product h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.about-product h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #418e28;
+  margin: 1rem auto 0;
+  border-radius: 2px;
 }
 
 .about-product h2 {
   color: #418e28;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
 }
 
 .about-product p {
-  width: 50%;
-  color: hsl(0deg 0% 37.25%);
+  width: 70%;
+  max-width: 800px;
+  color: #5f5f5f;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .product-btn {
   background-color: #418e28;
-  padding: 12px 20px;
+  padding: 14px 28px;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   width: auto;
   max-width: 12.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease;
   text-decoration: none;
   color: white;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(65, 142, 40, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+.product-btn:hover {
+  background-color: #306b1e;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(65, 142, 40, 0.4);
+}
+
+.product-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(65, 142, 40, 0.3);
 }
 
 /* ABOUT INNOVATOR STYLING */
@@ -576,35 +656,90 @@ html {
 
 /* FOOTER SECTION */
 footer {
-  background-color: #4e6a46; 
-  color: rgb(230, 158, 103); 
-  padding: 20px;
+  background-color: #1a3a1a; /* Darker green background */
+  color: white;
+  padding: 60px 40px 30px;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle leaf pattern overlay */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-color:#1A3A1A;
+  pointer-events: none;
 }
 
 .footer-details {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  margin-right: 8px;
+  height: 40px;
+  filter: brightness(1.1); /* Makes logo slightly brighter against dark bg */
+}
+
+.coco {
+  color: #5ca202;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fert {
+  color: rgb(213, 128, 64); /* Light green accent */
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .quick-links,
 .contact-links {
   display: flex;
   flex-direction: column;
+  min-width: 200px;
 }
 
 .quick-links span,
 .contact-links > span {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: rgb(230, 158, 103);
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.quick-links span::after,
+.contact-links > span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #66b347; /* Medium green for accent */
+  border-radius: 2px;
 }
 
 .contact-detail {
@@ -612,6 +747,16 @@ footer {
   align-items: center;
   margin-bottom: 15px;
   gap: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-detail:hover {
+  transform: translateX(5px);
+}
+
+.contact-detail i {
+  color: #8fca7b; /* Light green for icons */
+  font-size: 18px;
 }
 
 .footer-items {
@@ -621,26 +766,48 @@ footer {
 }
 
 .footer-items li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.footer-items li:hover {
+  transform: translateX(5px);
 }
 
 .footer-items a {
   text-decoration: none;
-  color: rgb(230, 158, 103); 
+  color: white;
   font-size: 16px;
   transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-items a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #8fca7b;
+  transition: width 0.3s ease;
 }
 
 .footer-items a:hover {
-  color: #8b7355; 
+  color: #8fca7b; /* Light green on hover */
+}
+
+.footer-items a:hover::after {
+  width: 100%;
 }
 
 /* Horizontal line styling */
 .footer-divider {
   border: 0;
   height: 1px;
-  background-color: rgb(230, 158, 103); 
-  margin: 20px auto;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  margin: 40px auto;
   max-width: 1200px;
 }
 
@@ -648,7 +815,7 @@ footer {
 .copyright {
   text-align: center;
   font-size: 14px;
-  color: rgb(230, 158, 103);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: 10px;
 }
 
@@ -660,7 +827,7 @@ footer {
   }
 
   .nav-bar {
-    padding: 10px 20px;
+    padding: 10px 15px;
   }
 
   .logo {
@@ -772,7 +939,7 @@ footer {
 
 @media screen and (max-width: 480px) {
   .hero-title {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   .hero-subtitle {
@@ -808,14 +975,20 @@ footer {
 
 @media (max-width: 768px) {
   /* Adjust for tablets and larger mobile devices */
+ 
+  .about-product h1 {
+    font-size: 2rem;
+  }
+  
   .about-product h2 {
-    font-size: 1.75rem; /* Reduce font size */
+    font-size: 1.5rem;
+  }
+  
+  .about-product p {
+    width: 90%;
+    font-size: 1rem;
   }
 
-  .about-product p {
-    width: 80%; /* Increase width for better readability */
-    font-size: 0.9rem; /* Reduce font size */
-  }
 
   .innovate {
     flex-direction: column; /* Stack image and content vertically */
@@ -838,17 +1011,17 @@ footer {
 @media (max-width: 480px) {
   /* Adjust for mobile devices */
   .about-product {
-    margin-bottom: 2rem;
+    padding: 3rem 1rem;
   }
-
-  .about-product h2 {
-    font-size: 1.5rem; /* Further reduce font size */
+  
+  .about-product h1 {
+    font-size: 1.8rem;
   }
-
+  
   .about-product p {
-    width: 90%; /* Increase width for better readability */
-    font-size: 0.8rem; /* Further reduce font size */
+    width: 100%;
   }
+
 
   .innovate {
     width: 95%; /* Increase width for smaller screens */
@@ -983,19 +1156,23 @@ footer {
 /* FOOTER SECTION */
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
+  footer {
+    padding: 40px 20px 20px;
+  }
+  
   .footer-details {
     flex-direction: column;
-    align-items: center;
-    /* text-align: center; */
+    gap: 30px;
   }
-
-  .logo {
-    margin-bottom: 20px;
+  
+  .quick-links, .contact-links {
+    width: 100%;
   }
+}
 
-  .quick-links,
-  .legal-links {
-    align-items: center;
-    margin: 10px 0; /* Adjust as needed */
+@media (max-width: 480px) {
+  .quick-links span::after,
+  .contact-links > span::after {
+    width: 30px;
   }
 }
