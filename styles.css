@@ -64,9 +64,9 @@ html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1); /* Very subtle white background */
-  backdrop-filter: blur(5px); /* Blur effect for better readability */
-  -webkit-backdrop-filter: blur(5px); /* For Safari support */
+  background-color: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
   position: fixed;
   width: 100%;
   height: auto; /* Changed from fixed height to auto */
@@ -75,7 +75,7 @@ html {
   z-index: 1000;
   padding: 10px 30px;
   border: none;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); 
 }
 
 /* add scrolled class styles */
@@ -107,6 +107,30 @@ html {
   list-style: none;
   width: 50%;
   /* height: 100%; */
+}
+
+
+.nav-items.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.9); /* Solid background for visibility */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+.nav-items.active li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.nav-items.active a {
+  color: #222;
+  font-size: 1.2rem;
 }
 
 .nav-items > li a {
@@ -844,8 +868,8 @@ footer::before {
     top: 0;
     right: -100%;
     flex-direction: column;
-    background-color: wheat;
-    width: 70%;
+    /* background-color: wheat; */
+    width: 100%;
     height: 100%;
     justify-content: flex-start;
     padding-top: 60px;
